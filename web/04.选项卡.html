@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vue.js"></script>
+<body>
+    <div id="app">
+        <button @click="add('军事')">军事</button>
+        <button @click="add('报导')">报导</button>
+        <button @click="add('演习')">演习</button>
+        <ul v-show="'军事'===info">
+            <li>军事</li>
+            <li>军事</li>
+            <li>军事</li>
+            <li>军事</li>
+            <li>军事</li>
+            <li>军事</li>
+            <li>军事</li>
+            <li>军事</li>
+        </ul>
+        <ul v-show="'报导'===info">
+            <li>报导</li>
+            <li>报导</li>
+            <li>报导</li>
+            <li>报导</li>
+            <li>报导</li>
+            <li>报导</li>
+            <li>报导</li>
+            <li>报导</li>
+        </ul>
+        <ul v-show="'演习 '===info">
+            <li>演习演习</li>
+            <li>演习演习</li>
+            <li>演习演习</li>
+            <li>演习演习</li>
+            <li>演习演习</li>
+            <li>演习演习</li>
+            <li>演习演习</li>
+            <li>演习演习</li>
+         </ul>
+    </div>
+</body>
+</html>
+<script>
+        var vm = new Vue({
+        el:"#app",
+            data:{
+                info:"军事"
+            },
+            //实现标签事件处理函数add
+             methods:{
+               add(a) {
+                  this.info=a;
+               }
+            },
+        })
+</script>

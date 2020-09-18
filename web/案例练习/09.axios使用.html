@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+    <button @click="fetchData">单击我发起GET请求</button>
+        <button @click="postData">单击我发起POST请求</button>
+    </div>
+</body>
+</html>
+<script>
+    var vm  = new Vue({
+        el:"#app",
+    data:{
+            msg:"默认文本"
+    },
+        methods:{
+          //通过get请求拉去服务器的数据
+            fetchData(){
+                //发起get请求,拉去服务器数据
+                axios.get("./data.text").then((obj)=> {
+                    //修改msg属性
+                    this.msg= obj.data;
+                })
+            },
+            postData(){
+                //发起post请求,拉取服务器数据
+                axios.post("./data.text").then((obj)=>{
+                    this.msg = obj.data;
+                })
+            }
+        },
+    })
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        position: relative;
+        width: 300px;
+        height: 150px;
+        background-color: seagreen;
+        text-align: center;
+        line-height: 150px;
+        /*调用animation函数*/
+        /*
+        第一个参数:动画名称;
+        第二个参数:每一次动画执行的时间(s/ms);
+        第三个参数:动画执行的速率 linear-匀速  ease-in -->慢入   ease-out -->慢出
+        第四个参数:第一次动画的延迟时间(第一次延迟n秒才开始执行);
+        第五个参数:动画执行的次数  (infinite : 代表动画执行无数次);
+
+        */
+        animation:erha 5s linear 0s 6;
+    }
+    /*animation动画声明部分*/
+    @-webkit-keyframes  erha{
+        from{
+            left: 0px;
+            border-radius: 0px 0px 0px 0px;
+            font-size: 16px;
+        }
+        to{
+            left: 600px;
+            background-color: pink;
+            border-radius: 100px 100px 100px 100px;
+            font-size: 30px;
+        }
+    }
+</style>
+<body>
+    <div>
+        我的兰妹
+    </div>
+</body>
+</html>

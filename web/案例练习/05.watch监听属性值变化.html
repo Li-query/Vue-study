@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+    <div id="app">
+
+        <input type="text" v-model="msg">
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+
+        data:{
+            msg:""
+        },
+        //监听实例的属性值变化
+        watch:{
+            //watch可以监听实例属性值变化
+            //watch这里书写函数名字无比和监听属性名字要统一
+            msg(){
+                console.log("你发生了变化")
+            }
+        }
+    })
+</script>

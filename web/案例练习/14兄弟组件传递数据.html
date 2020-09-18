@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style>
+        #app{
+            width: 80%;
+            height: 600px;
+            background-color: red;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+        .son{
+            width: 400px;
+        height: 200px;
+        background-color: pink;
+            margin-top: 20px;
+        }
+        .son1{
+            width: 400px;
+            height: 200px;
+            background-color: yellow;
+            margin-top: 20px;
+        }
+
+
+    </style>
+<body>
+        <!--这是根组件-->
+    <div id="app">
+        <son class="son"></son>
+        <son1 class="son1"></son1>
+    </div>
+        <template id="son">
+            <div>
+                <h1>大儿子组件</h1>
+                 <h3>   {{info}} </h3>
+            </div>
+        </template>
+        <template id="son1">
+            <div>
+                <h1>小儿子组件---{{car}}</h1>
+                <button @click="sendCar">单击我给我哥送礼物</button>
+            </div>
+        </template>
+</body>
+</html>
+<script>
+    //前端工程师:中央管道
+    //就是将Vue实例作为原型对象的属性值
+    Vue.prototype.$bus = new Vue;
+
+    //兄弟组件传递数据
+    var vm = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        components:{
+            //第一个儿子组件
+            son: {
+                template: "#son",
+                data(){
+                    return {
+                        info: ''
+                    }
+                },
+                mounted(){
+                    //哥哥接收弟弟传来的数据
+                    this.$bus.$on("sendCar",($event)=>{
+                        this.info=$event;
+                    })
+                },
+            },
+            son1:{
+                template: "#son1",
+                data(){
+                    return{
+                        car:"奔驰"
+                    }
+                },
+                methods:{
+                    sendCar(){
+                        //小儿子给哥哥传递数据
+                        this.$bus.$emit("sendCar",this.car)
+                    }
+                }
+            }
+        }
+    })
+
+</script>

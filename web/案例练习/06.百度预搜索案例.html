@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="./vue.js"></script>
+<body>
+    <div id="app">
+       <h4>请输入你想搜索的内容:<input type="text" v-model="url"></h4>
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+        {{url}}
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            url:""
+        },
+        //watch监听属性值变化
+        watch:{
+            url(newVaule){
+                //这个函数在监听的属性值变化的时候会立即执行一次
+                //会将最新的数据 作为实参注入
+                //请求网址拼接
+                var path = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+ newVaule+"&cb=a";
+                //JSONP跨域拉取数据
+                //实现原理: 利用script标签的src属性
+                //利用函数的声明和调用放在两个不同的服务器上
+                //动态创建script标签
+                var script  = new document.createElement("script");
+                //设置script标签的src属性值
+                script.src = path;
+                //标签上树将请求发出去
+                document.body.appendChild(script);
+
+            }
+        }
+    });
+
+    //声明一个同名函数
+    function newVaule(obj) {
+        //修改vue实例的arr属性值
+        vm.arr = obj.s;
+    }
+
+
+</script>

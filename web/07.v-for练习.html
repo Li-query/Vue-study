@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vue.js"></script>
+<body>
+    <div id="app">
+        <h2>{{hobby}}</h2>
+        <p><input type="text" v-moudle="hobby"><button @click="add">单击添加爱好</button></p>
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            arr:['吃饭','睡觉','打豆豆'],
+            hobby:''
+        },
+        methods:{
+            add(){
+                //像数组尾部添加元素
+                vm.arr.push(this.hobby);
+                vm.hobby='';
+            }
+        }
+    })
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+
+//  v-show 只是隐藏 <br>
+//  v-if 是进行上下树操作
+<body>
+    <div id="app">
+        <h1>你的性别是什么</h1>
+        <ul>
+            <li v-if="'男'===sex">男</li>
+            <li v-else-if="'女'===sex ">女</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            sex:"男"
+        }
+
+    })
+</script>

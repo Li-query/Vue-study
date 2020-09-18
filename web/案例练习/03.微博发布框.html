@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="./vue.js"></script>
+<body>
+    <div id="app">
+        <textarea name="" id="" cols="40" rows="20" v-model="info"></textarea><span>{{info.length}}/140字</span>
+        <p>
+            <button :disabled="info.length===0||info.length>140">发布</button>
+            <button @click="clear">清除</button>
+        </p>
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:({
+            info:''
+             }),
+        methods:{
+            clear() {
+                this.info='';
+            }
+        }
+    })
+</script>

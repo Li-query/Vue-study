@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02Vue常用指令</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <p v-text="msg "></p>             <!--v-text遇到标签时  不将其渲染
+        ,而把他当作文本信息-->
+        <hr>
+        <p>{{msg}}</p>
+        <p v-html="msg"></p>                <!--v-html遇到标签时  自动将其渲染为标签-->
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"<a href=\"http//:www.baidu.com\">百度</a>"
+        }
+    })
+</script>

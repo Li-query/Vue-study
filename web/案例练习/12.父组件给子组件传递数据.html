@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<style>
+    #app{
+        width: 80%;
+        height: 300px;
+        background-color: red;
+        border: 2px solid black;
+        margin: 0 auto;
+    }
+    .cur{
+        width: 400px;
+        height: 200px;
+        background-color: yellow;
+
+    }
+</style>
+<template id="son">
+    <div>
+        <h1>我是儿子组件~~{{msg}}和{{car}}</h1>
+    </div>
+</template>
+<body>
+    <div id="app">
+        <h1>我是最大的根组件~~{{msg}}和{{car}}</h1>
+        <son class="cur":msg="msg" :car ="car"></son>
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"我有一个亿",
+            car:"奔驰",
+        },
+        components:{
+            son:{
+                //子(局部)组件
+                template:"#son",
+                //子组件利用props来接收父组件传来的数据
+                props:["msg","car"]
+            }
+        }
+    });
+    //父组件给子组件传递数据,利用props
+</script>

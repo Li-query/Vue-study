@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vue.js"></script>
+<body>
+
+    <div id="app">
+        <h1>我是实例的属性值{{msg}}</h1>
+        <input type="range" v-model="msg">
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"我是实例的数据"
+        }
+    })
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <h1>Hello  我是Vue,我今年{{age}}岁了</h1>
+    </div>
+</body>
+</html>
+<script>
+    //当程序中引入vue框架的时候,这个框架对外暴漏了一个叫做vue的构造函数
+    //console.log(Vue);
+    //通过Vue的构造函数可以创建Vue的实例
+    var vm  = new  Vue({
+        //el是挂载点的简写  (将VUE和上面结构层中标签进行联系)
+        el:"#app",
+        //VUE实际的数据来源
+        data:{
+            age:18
+        }
+    });
+    //修改age的属性值
+    vm.age = 23;
+</script>

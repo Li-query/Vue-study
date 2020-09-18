@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vue.js"></script>
+<body>
+    <div id="app">
+        <h1>Vue常用指令v-for学习</h1>
+        <h3 v-for="item in 3">我是二级标题{{item}}</h3>
+        <h1>循环语句遍历数组</h1>
+        <ul>
+            <li v-for="(item,index) in arr">{{item}}---{{index}}</li>
+        </ul>
+        <table>
+            <tr v-for=" row in 9">
+                <td v-for="col in 9" v-show="row>=col">{{row * col}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    var vm =new Vue({
+        el:"#app",
+        data:{
+            arr:['吃饭','睡觉','打豆豆']
+        }
+
+    })
+</script>

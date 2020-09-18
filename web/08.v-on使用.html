@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vue.js"></script>
+<body>
+    <div id="app">
+        <h1>我是计数器小案例---{{count}}</h1>
+        <button v-on:click="add">单击我+1</button>
+        <button @click="sub">单击我-1</button>
+        <span @mouseenter="haha">我绑定鼠标移上</span>
+    </div>
+</body>
+</html>
+<script>
+    var  vm = new Vue({
+        el:"#app",
+        data:{
+            count:1,
+        },
+        //事件处理函数
+        methods:{
+            add(){
+                this.count++;
+                this.count = this.count>10?10:this.count;
+            },
+            sub(){
+                this.count--;
+                this.count = this.count<0?0:this.count;
+            },
+            haha(){
+                alert("鼠标在我上面");
+            }
+        }
+    })
+</script>

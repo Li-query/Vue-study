@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    p{
+        float: left;
+        margin-left: 10px ;
+        width: 100px;
+        height: 100px;
+        background-color: cyan;
+    }
+</style>
+<body>
+    <div id="app">
+    <!--用标签形式使用组件-->
+        <rui></rui>
+        <rui></rui>
+        <rui></rui>
+        <rui></rui>
+        <rui></rui>
+        <rui></rui>
+        <lir></lir>
+    </div>
+    <hr>
+    <template id="erha">
+        <div>
+            <p @click="add">
+                 {{msg}}
+             </p>
+        </div>
+
+    </template>
+    <template id="sina">
+        <div>
+            <a href="http://www,sina.com">新浪</a>
+        </div>
+    </template>
+</body>
+</html>
+<script >
+    Vue.component("lir",{
+        template:"#sina"
+    })
+    var vm = new Vue({
+        el:"#app",
+        //根组件数据
+        data:{},
+        methods:{},
+        watch:{},
+        //局部组件需要注册
+        components:{
+            //组建的名字
+            rui:{
+                template:"#erha",
+                //组件数据
+                data(){
+                    //组件数据务必要有返回值
+                    return{
+                        msg:1
+                    }
+                },
+                //事件处理函数地方
+                methods: {
+                    //rui组件处理函数的地方
+                    add(){
+                        this.msg++;
+                    },
+                },
+            },
+        }
+    });
+    //Vue当中组件分为两种:
+    //局部组件 + 全局组件
+    //局部组件务必要在components里边进行注册
+    //使用的时候当作一哥自定义标签使用即可
+
+    //全局组件可以在任何地方使用
+    //需要同股票Vue构造函数的component属性进行创建
+
+</script>
